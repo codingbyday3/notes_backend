@@ -3,11 +3,13 @@ const cors = require("cors")
 const app = express()
 
 app.use(express.json())
+app.use(cors())
+app.use(express.static("dist"))
 
 let notes = [
   {
     id: "1",
-    content: "HTML is easy",
+    content: "HTML is very easy",
     important: true
   },
   {
@@ -31,7 +33,6 @@ const generateId = () =>{
 
 }
 
-app.use(cors())
 
 app.get("/", (request, response) => {
     response.send("<h1>Hello World</h1>")
